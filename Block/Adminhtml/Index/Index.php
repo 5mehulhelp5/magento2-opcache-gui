@@ -1,37 +1,56 @@
 <?php
 /**
- * Copyright ©  All rights reserved.
- * See COPYING.txt for license details.
+ * OPcache GUI index block
+ *
+ * @category  Genaker
+ * @package   Genaker_Opcache
+ * @author    Ilan Parmentier
+ * @copyright Copyright © 2020-2025 Amadeco. All rights reserved.
+ * @license   MIT License
  */
 declare(strict_types=1);
 
 namespace Genaker\Opcache\Block\Adminhtml\Index;
 
+use Magento\Backend\Block\Template;
+use Magento\Backend\Block\Template\Context;
 use Magento\Backend\Model\UrlInterface;
 
-class Index extends \Magento\Backend\Block\Template
+/**
+ * Admin block for OPcache GUI main page
+ */
+class Index extends Template
 {
-
-    protected $backendUrl;
+    /**
+     * Backend URL interface
+     *
+     * @var UrlInterface
+     */
+    protected UrlInterface $backendUrl;
     
     /**
      * Constructor
      *
-     * @param \Magento\Backend\Block\Template\Context  $context
-     * @param array $data
+     * @param Context      $context
+     * @param UrlInterface $backendUrl
+     * @param array        $data
      */
     public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
+        Context $context,
         UrlInterface $backendUrl,
         array $data = []
     ) {
         $this->backendUrl = $backendUrl;
-        //$this->setData('gui_url', $this->backendUrl->getUrl('opcache_gui/index/gui'));
         parent::__construct($context, $data);
     }
     
-    public function getGuiUrl(){
+    /**
+     * Get OPcache GUI URL
+     *
+     * @return string
+     */
+    public function getGuiUrl(): string
+    {
         return $this->backendUrl->getUrl('opcache_gui/index/gui');
     }
 }
-
