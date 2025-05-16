@@ -289,35 +289,15 @@ declare(strict_types=1);
 </div>
 
 <?php
-// Define OPcache GUI options
-$opcacheGuiOptions = [
-    'allow_filelist'   => true,
-    'allow_invalidate' => true,
-    'allow_reset'      => true,
-    'allow_realtime'   => true,
-    'refresh_time'     => 5,
-    'size_precision'   => 2,
-    'size_space'       => false,
-    'charts'           => true,
-    'debounce_rate'    => 250,
-    'per_page'         => 200,
-    'cookie_name'      => 'opcachegui',
-    'cookie_ttl'       => 365,
-    'highlight'        => [
-        'memory' => true,
-        'hits'   => true,
-        'keys'   => true
-    ]
-];
-
-// Add PHP 8+ specific options if available
-if (PHP_VERSION_ID >= 80000) {
-    $opcacheGuiOptions['php8'] = true;
-}
-
 try {
+    if (!class_exists(\Amnuts\Opcache\Service::class)) {
+        throw new \RuntimeException(
+            __('Amnuts\Opcache\Service class is not available. Make sure the amnuts/opcache-gui package is installed.')
+        );
+    }
+    
     // Initialize the OPcache GUI service
-    $opcacheGui = (new \Amnuts\Opcache\Service($opcacheGuiOptions))->handle();
+    $opcacheGui = (new \Amnuts\Opcache\Service())->handle();
     
     echo '<div class="opcache-dashboard">';
     
