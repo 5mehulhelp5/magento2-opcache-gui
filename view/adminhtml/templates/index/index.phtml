@@ -1,19 +1,49 @@
-<script>
-  function resizeIframe(obj) {
-    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
-  }
-</script>
-
-<!-- Precache React -->
-<!--<script src="//unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-<script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>-->
-<!--for development production.min. = development -->
-<!--
-<script src="//unpkg.com/axios/dist/axios.min.js" crossorigin></script>
--->
 <?php
+/**
+ * OPcache GUI iframe wrapper template
+ *
+ * @category  Genaker
+ * @package   Genaker_Opcache
+ * @author    Yehor Shytikov
+ * @copyright Copyright (c) 2020-2025 Genaker
+ * @license   MIT
+ */
+declare(strict_types=1);
 
-echo "<h1> PHP Op-Cache GUI </h1>";
-//require_once __DIR__ . '/../../../../vendor/amnuts/opcache-gui/index.php';
+/** 
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer 
+ */
+?>
+<div class="opcache-gui-wrapper">
+    <h1 class="opcache-gui-title"><?= $escaper->escapeHtml(__('PHP OPcache GUI')) ?></h1>
 
-echo "<iframe src='" . $block->getGuiUrl() . "' title='react' style='height: 100%; width: 100%;' frameborder='0'  scrolling='no' onload='resizeIframe(this)'>";
+<?php
+$scriptString = <<<script
+  
+        /**
+         * Automatically resize iframe to fit content
+         *
+         * @param {Object} iframeElement - The iframe DOM element
+         */
+        function resizeOpcacheIframe(iframeElement) {
+            if (iframeElement && iframeElement.contentWindow) {
+                iframeElement.style.height = 
+                    iframeElement.contentWindow.document.documentElement.scrollHeight + 'px';
+            }
+        }
+  
+script;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>
+    
+    <iframe 
+        src="<?= $escaper->escapeUrl($block->getGuiUrl()) ?>" 
+        title="<?= $escaper->escapeHtmlAttr(__('PHP OPcache Dashboard')) ?>" 
+        style="width: 100%; min-height: 600px; border: none;" 
+        onload="resizeOpcacheIframe(this)"
+        loading="lazy"
+        sandbox="allow-same-origin allow-scripts allow-forms"
+        class="opcache-gui-iframe">
+    </iframe>
+</div>
