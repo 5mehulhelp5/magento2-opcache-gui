@@ -2,7 +2,7 @@
 
 Magento 2 Opcache Control GUI using React Frontend Micro-services. 
 
-![MAgento 2 Opcache GUI](https://github.com/Genaker/Magento2OPcacheGUI/raw/main/Magento-Opcache-Gui.jpg)
+![Magento 2 Opcache GUI](https://github.com/user-attachments/assets/60f1a3aa-8c34-45ef-9b63-db3d9385b883)
 
 # Where to find in the Admin Menu
 
@@ -57,19 +57,10 @@ New feature has been added. Now you will have PHP performance test on GUI open.
 
 Magento 2 is CPU CPU-intensive platform due to bad framework design. You should use the fastest CPU to achieve a good page rendering performance. If Magento 2 takes a 2GHz processor core 3 seconds to process a request, then the same request would be returned in around 2 seconds by a 3GHz processor core. Test your PHP performance. 
 
-![Magento 2 PHP performance](https://github.com/Genaker/Magento2OPcacheGUI/raw/main/PHP-performance.jpg)
+![Magento 2 PHP performance](https://github.com/user-attachments/assets/b7aed8ba-f179-4e61-b338-30812a7d798d)
 
 AWS C5.large has *0.032* PHP 7.3.23 performance score (less is better). <br/>
 AWS R5.xlarge has *0.039* PHP 7.2.34 performance score (less is better). <br/>
 AWS C8.xlarge has *0.029* PHP 8.1 performance score (less is better), CLI performace is: 0.066 for Cli opcache doesn't work it is well known PHP issue <br/>
 
-Two types of BogoMIPS performance are measured from the CLI and from the web interface cached by OPcache. 
-
-# What is BogoMIPS of the Magento Server?
-
-MIPS stands for Millions of Instructions Per Second. It measures a Magento server code computation speed. Like most such measures, it is more often abused than used properly (it is very difficult to justly compare MIPS for different kinds of computers).
-BogoMips are Linus's (Founder of Linux) own invention and Yehor Shytikov adopted this concept to the Magento servers. The linux kernel version 0.99.11 (dated 11 July 1993) needed a timing loop (the time is too short and/or needs to be too exact for a non-busy-loop method of waiting), which must be calibrated to the processor speed of the machine. Hence, the kernel measures at boot time how fast a certain kind of busy loop runs on a computer. "Bogo" comes from "bogus", i.e, something which is a fake. Hence, the BogoMips value gives some indication of the processor speed, but it is way too unscientific to be called anything but BogoMips.
-
-It is the best way to measure Magento PHP code execution on the server and compare server performance. 
-
-
+Two types of BogoMIPS performance are measured from the CLI and from the web interface cached by OPcache.
