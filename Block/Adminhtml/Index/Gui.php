@@ -1,23 +1,33 @@
 <?php
 /**
- * Copyright ©  All rights reserved.
- * See COPYING.txt for license details.
+ * OPcache GUI administration block
+ *
+ * @category  Genaker
+ * @package   Genaker_Opcache
+ * @author    Ilan Parmentier
+ * @copyright Copyright © 2020-2025 Amadeco. All rights reserved.
+ * @license   MIT License
  */
 declare(strict_types=1);
 
 namespace Genaker\Opcache\Block\Adminhtml\Index;
 
-class Gui extends \Magento\Backend\Block\Template
-{
+use Magento\Backend\Block\Template;
+use Magento\Backend\Block\Template\Context;
 
+/**
+ * Admin block for OPcache GUI interface
+ */
+class Gui extends Template
+{
     /**
      * Constructor
      *
-     * @param \Magento\Backend\Block\Template\Context  $context
-     * @param array $data
+     * @param Context $context
+     * @param array   $data
      */
     public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
+        Context $context,
         array $data = []
     ) {
         parent::__construct($context, $data);
