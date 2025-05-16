@@ -1,11 +1,11 @@
 <?php
 /**
- * OPcache GUI administration controller
+ * Controller for the OPcache GUI interface
  *
  * @category  Genaker
  * @package   Genaker_Opcache
- * @author    Yehor Shytikov
- * @copyright Copyright © 2020-2025 Genaker. All rights reserved.
+ * @author    Ilan Parmentier, Yehor Shytikov
+ * @copyright Copyright © 2020-2025 Genaker, Amadeco. All rights reserved.
  * @license   MIT License
  */
 declare(strict_types=1);
@@ -18,7 +18,6 @@ use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\App\Response\Http as ResponseHttp;
 
 /**
  * Controller for the OPcache GUI interface
@@ -33,12 +32,16 @@ class Gui extends Action implements HttpGetActionInterface
     public const ADMIN_RESOURCE = 'Genaker_Opcache::index_gui';
 
     /**
+     * Page factory for creating result pages
+     *
      * @var PageFactory
      */
     private PageFactory $resultPageFactory;
 
     /**
-     * @param Context $context
+     * Constructor
+     *
+     * @param Context     $context
      * @param PageFactory $resultPageFactory
      */
     public function __construct(
