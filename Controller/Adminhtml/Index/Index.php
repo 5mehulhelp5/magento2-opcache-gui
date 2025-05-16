@@ -1,26 +1,49 @@
 <?php
 /**
- * Copyright ©  All rights reserved.
- * See COPYING.txt for license details.
+ * OPcache GUI index controller
+ *
+ * @category  Genaker
+ * @package   Genaker_Opcache
+ * @author    Yehor Shytikov
+ * @copyright Copyright © 2020-2025 Genaker. All rights reserved.
+ * @license   MIT License
  */
 declare(strict_types=1);
 
 namespace Genaker\Opcache\Controller\Adminhtml\Index;
 
-class Index extends \Magento\Backend\App\Action
-{
+use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
+use Magento\Framework\App\Action\HttpGetActionInterface;
+use Magento\Framework\Controller\ResultInterface;
+use Magento\Framework\View\Result\PageFactory;
 
-    protected $resultPageFactory;
+/**
+ * Main controller for the OPcache GUI module
+ */
+class Index extends Action implements HttpGetActionInterface
+{
+    /**
+     * Authorization level of a basic admin session
+     *
+     * @see _isAllowed()
+     */
+    public const ADMIN_RESOURCE = 'Genaker_Opcache::index_index';
+
+    /**
+     * @var PageFactory
+     */
+    private PageFactory $resultPageFactory;
 
     /**
      * Constructor
      *
-     * @param \Magento\Backend\App\Action\Context  $context
-     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
+     * @param Context $context
+     * @param PageFactory $resultPageFactory
      */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory
+        Context $context,
+        PageFactory $resultPageFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
@@ -29,11 +52,14 @@ class Index extends \Magento\Backend\App\Action
     /**
      * Execute view action
      *
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return ResultInterface
      */
-    public function execute()
+    public function execute(): ResultInterface
     {
-        return $this->resultPageFactory->create();
+        $resultPage = $this->resultPageFactory->create();
+        $resultPage->setActiveMenu('Genaker_Opcache::index_index');
+        $resultPage->getConfig()->getTitle()->prepend(__('PHP OPcache Dashboard'));
+
+        return $resultPage;
     }
 }
-
