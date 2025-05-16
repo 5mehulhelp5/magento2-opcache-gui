@@ -16,7 +16,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.1",
         "ext-zend-opcache": "*",
         "amnuts/opcache-gui": "^3.0"
     },
