@@ -320,8 +320,10 @@ try {
     $opcacheGui = (new \Amnuts\Opcache\Service($opcacheGuiOptions))->handle();
     
     echo '<div class="opcache-dashboard">';
+    
     // Include the OPcache GUI interface
-    require_once __DIR__ . '/../../../../../vendor/amnuts/opcache-gui/index.php';
+    require_once BP . '/vendor/amnuts/opcache-gui/index.php';
+    
     echo '</div>';
 } catch (\Exception $e) {
     echo '<div class="performance-error">
