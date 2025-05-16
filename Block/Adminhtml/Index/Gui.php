@@ -4,8 +4,8 @@
  *
  * @category  Genaker
  * @package   Genaker_Opcache
- * @author    Ilan Parmentier
- * @copyright Copyright © 2020-2025 Amadeco. All rights reserved.
+ * @author    Ilan Parmentier, Yehor Shytikov
+ * @copyright Copyright © 2020-2025 Genaker, Amadeco. All rights reserved.
  * @license   MIT License
  */
 declare(strict_types=1);
