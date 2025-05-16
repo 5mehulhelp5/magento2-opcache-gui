@@ -155,7 +155,7 @@ declare(strict_types=1);
          * Check OPcache status and configuration
          * Provides warnings about suboptimal settings
          */
-        if (extension_loaded('Zend OPcache')) {
+        if (is_array(opcache_get_status())) {
             try {
                 // Get OPcache status and configuration
                 $opcacheStatus = opcache_get_status(false);
