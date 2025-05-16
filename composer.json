@@ -1,15 +1,25 @@
 {
-    "name": "genaker/module-opcache",
-    "description": "PHP Op-cache monitoring ",
+    "name": "amadeco/module-opcache-gui",
+    "description": "Magento 2 OPcache Control GUI with React-based interface - Performance monitoring and optimization dashboard for PHP",
     "type": "magento2-module",
+    "version": "1.0.0",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Ilan Parmentier",
+            "email": "dev@amadeco.fr"
+        },
         {
             "name": "Yehor Shytikov",
             "email": "egorshitikov@gmail.com"
         }
     ],
     "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.1",
+        "ext-zend-opcache": "*",
+        "amnuts/opcache-gui": "^3.0"
+    },
     "autoload": {
         "psr-4": {
             "Genaker\\Opcache\\": ""
