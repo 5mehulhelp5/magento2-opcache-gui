@@ -16,7 +16,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "ext-zend-opcache": "*",
         "amnuts/opcache-gui": "^3.0"
     },
     "autoload": {
