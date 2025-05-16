@@ -4,8 +4,8 @@
  *
  * @category  Genaker
  * @package   Genaker_Opcache
- * @author    Yehor Shytikov
- * @copyright Copyright © 2020-2025 Genaker. All rights reserved.
+ * @author    Yehor Shytikovn, Ilan Parmentier
+ * @copyright Copyright © 2020-2025 Genaker, Amadeco. All rights reserved.
  * @license   MIT License
  */
 declare(strict_types=1);
@@ -31,6 +31,8 @@ class Index extends Action implements HttpGetActionInterface
     public const ADMIN_RESOURCE = 'Genaker_Opcache::index_index';
 
     /**
+     * Page factory for creating result pages
+     *
      * @var PageFactory
      */
     private PageFactory $resultPageFactory;
@@ -38,7 +40,7 @@ class Index extends Action implements HttpGetActionInterface
     /**
      * Constructor
      *
-     * @param Context $context
+     * @param Context     $context
      * @param PageFactory $resultPageFactory
      */
     public function __construct(
