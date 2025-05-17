@@ -2,11 +2,11 @@
 /**
  * Controller for the OPcache GUI interface
  *
- * @category  Amadeco
- * @package   Amadeco_OpcacheGui
- * @author    Ilan Parmentier, Yehor Shytikov
+ * @category Amadeco
+ * @package Amadeco_OpcacheGui
+ * @author Ilan Parmentier, Yehor Shytikov
  * @copyright Copyright © 2020-2025 Genaker, Amadeco. All rights reserved.
- * @license   MIT License
+ * @license MIT License
  */
 declare(strict_types=1);
 
@@ -16,7 +16,9 @@ use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\ResultInterface;
-use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\Controller\Result\RawFactory;
+use Magento\Framework\View\LayoutFactory;
+use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\Exception\LocalizedException;
 
 /**
@@ -32,23 +34,37 @@ class Gui extends Action implements HttpGetActionInterface
     public const ADMIN_RESOURCE = 'Amadeco_OpcacheGui::index_gui';
 
     /**
-     * Page factory for creating result pages
-     *
-     * @var PageFactory
+     * @var RawFactory
      */
-    private PageFactory $resultPageFactory;
+    private $resultRawFactory;
+
+    /**
+     * @var LayoutFactory
+     */
+    private $layoutFactory;
+
+    /**
+     * @var ProductMetadataInterface
+     */
+    private $productMetadata;
 
     /**
      * Constructor
      *
-     * @param Context     $context
-     * @param PageFactory $resultPageFactory
+     * @param Context $context
+     * @param RawFactory $resultRawFactory
+     * @param LayoutFactory $layoutFactory
+     * @param ProductMetadataInterface $productMetadata
      */
     public function __construct(
         Context $context,
-        PageFactory $resultPageFactory
+        RawFactory $resultRawFactory,
+        LayoutFactory $layoutFactory,
+        ProductMetadataInterface $productMetadata
     ) {
-        $this->resultPageFactory = $resultPageFactory;
+        $this->resultRawFactory = $resultRawFactory;
+        $this->layoutFactory = $layoutFactory;
+        $this->productMetadata = $productMetadata;
         parent::__construct($context);
     }
 
@@ -60,10 +76,22 @@ class Gui extends Action implements HttpGetActionInterface
      */
     public function execute(): ResultInterface
     {
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Amadeco_OpcacheGui::index_gui');
-        $resultPage->getConfig()->getTitle()->prepend(__('PHP OPcache GUI'));
-        
-        return $resultPage;
+        if (!isset($_SERVER['SERVER_SOFTWARE'])) {
+            $_SERVER['SERVER_SOFTWARE'] = 'Magento/' . $this->productMetadata->getVersion();
+        }
+
+        $result = $this->resultRawFactory->create();
+
+        $layout = $this->layoutFactory->create();
+
+        $block = $layout->createBlock(
+            \Amadeco\OpcacheGui\Block\Adminhtml\Index\Gui::class,
+            'index.gui'
+        )->setTemplate('Amadeco_OpcacheGui::index/gui.phtml');
+
+        $result->setHeader('Content-Type', 'text/html; charset=UTF-8');
+        $result->setContents($block->toHtml());
+
+        return $result;
     }
 }
