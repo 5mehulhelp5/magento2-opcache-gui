@@ -60,7 +60,7 @@ class Index extends Action implements HttpGetActionInterface
     {
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Amadeco_OpcacheGui::index_index');
-        $resultPage->getConfig()->getTitle()->prepend(__('PHP OPcache Dashboard'));
+        $resultPage->getConfig()->getTitle()->prepend(__('PHP OpCache Dashboard'));
 
         return $resultPage;
     }
