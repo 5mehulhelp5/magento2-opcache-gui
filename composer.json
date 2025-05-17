@@ -1,8 +1,8 @@
 {
-    "name": "amadeco/module-opcache-gui",
+    "name": "amadeco/module-opcache-gui"
     "description": "Magento 2 OPcache Control GUI with React-based interface - Performance monitoring and optimization dashboard for PHP",
     "type": "magento2-module",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "license": "MIT",
     "authors": [
         {
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Genaker\\Opcache\\": ""
+            "Amadeco\\OpcacheGui\\": ""
         },
         "files": [
             "registration.php"
