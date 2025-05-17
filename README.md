@@ -18,7 +18,7 @@ This Extension doesn't need static content generation it uses CDN version of Rea
 
 or use composer: 
 ```
-composer require genaker/module-opcache
+composer require amadeco/module-db-override
 ```
 
 # Magento 2 Opcache best settings
