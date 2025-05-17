@@ -2,19 +2,19 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Genaker_Opcache::index_main" 
+        <add id="Amadeco_OpcacheGui::index_main" 
              title="React"
              parent="Magento_Backend::system"
-             module="Genaker_Opcache"
+             module="Amadeco_OpcacheGui"
              sortOrder="120"
-             resource="Genaker_Opcache::index_index"
+             resource="Amadeco_OpcacheGui::index_index"
         />
-        <add id="Genaker_Opcache::index_index" 
+        <add id="Amadeco_OpcacheGui::index_index" 
              title="OPcache GUI"
-             module="Genaker_Opcache"
+             module="Amadeco_OpcacheGui"
              action="opcache_gui/index/index"
-             resource="Genaker_Opcache::index_index" 
-             parent="Genaker_Opcache::index_main" 
+             resource="Amadeco_OpcacheGui::index_index" 
+             parent="Amadeco_OpcacheGui::index_main" 
              sortOrder="10"
         />
     </menu>
