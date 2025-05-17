@@ -2,7 +2,7 @@
     "name": "amadeco/module-opcache-gui",
     "description": "Magento 2 OPcache Control GUI with React-based interface - Performance monitoring and optimization dashboard for PHP",
     "type": "magento2-module",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "license": "MIT",
     "authors": [
         {
