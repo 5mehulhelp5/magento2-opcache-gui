@@ -10,20 +10,12 @@
              resource="Amadeco_OpcacheGui::opcache_gui"
         />
         <add id="Amadeco_OpcacheGui::index_index"
-             title="OPcache Dashboard"
+             title="PHP OpCache Dashboard"
              module="Amadeco_OpcacheGui"
              action="opcache_gui/index/index"
              resource="Amadeco_OpcacheGui::index_index"
              parent="Amadeco_OpcacheGui::index_main"
              sortOrder="10"
-        />
-        <add id="Amadeco_OpcacheGui::index_gui"
-             title="OPcache GUI Interface"
-             module="Amadeco_OpcacheGui"
-             action="opcache_gui/index/gui"
-             resource="Amadeco_OpcacheGui::index_gui"
-             parent="Amadeco_OpcacheGui::index_main"
-             sortOrder="20"
         />
     </menu>
 </config>
