@@ -2,15 +2,15 @@
 /**
  * Controller for the OPcache GUI interface
  *
- * @category  Genaker
- * @package   Genaker_Opcache
+ * @category  Amadeco
+ * @package   Amadeco_OpcacheGui
  * @author    Ilan Parmentier, Yehor Shytikov
  * @copyright Copyright © 2020-2025 Genaker, Amadeco. All rights reserved.
  * @license   MIT License
  */
 declare(strict_types=1);
 
-namespace Genaker\Opcache\Controller\Adminhtml\Index;
+namespace Amadeco\OpcacheGui\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -29,7 +29,7 @@ class Gui extends Action implements HttpGetActionInterface
      *
      * @see _isAllowed()
      */
-    public const ADMIN_RESOURCE = 'Genaker_Opcache::index_gui';
+    public const ADMIN_RESOURCE = 'Amadeco_OpcacheGui::index_gui';
 
     /**
      * Page factory for creating result pages
@@ -61,7 +61,7 @@ class Gui extends Action implements HttpGetActionInterface
     public function execute(): ResultInterface
     {
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Genaker_Opcache::index_gui');
+        $resultPage->setActiveMenu('Amadeco_OpcacheGui::index_gui');
         $resultPage->getConfig()->getTitle()->prepend(__('PHP OPcache GUI'));
         
         return $resultPage;
