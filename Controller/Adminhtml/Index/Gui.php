@@ -76,6 +76,8 @@ class Gui extends Action implements HttpGetActionInterface
      */
     public function execute(): ResultInterface
     {
+        // https://github.com/amnuts/opcache-gui/issues/122#issue-2962224068
+        //
         if (!isset($_SERVER['SERVER_SOFTWARE'])) {
             $_SERVER['SERVER_SOFTWARE'] = 'Magento/' . $this->productMetadata->getVersion();
         }
