@@ -15,9 +15,8 @@
 - **Performance Metrics**: Track OPcache efficiency and PHP performance
 - **Cache Control**: Reset cache, invalidate files, or force file refresh
 - **Configuration Viewer**: Examine your current OPcache configuration
-- **React-based Interface**: Modern, responsive UI built with React
+- **React-based Interface**: Modern, responsive UI built with React (Integrates with [amnuts/opcache-gui](https://github.com/amnuts/opcache-gui))
 - **Script Analysis**: Identify which files consume the most cache memory
-- **PHP BogoMIPS Performance Test**: Benchmark your PHP execution environment
 
 ## Installation
 
@@ -48,7 +47,7 @@ bin/magento cache:clean
 
 ### Accessing the Dashboard
 
-Navigate to **System → React → PHP OpCache Dashboard** in your Magento Admin Panel.
+Navigate to **System → Tools → PHP OpCache Dashboard** in your Magento Admin Panel.
 
 ## OPcache Optimization Guide
 
