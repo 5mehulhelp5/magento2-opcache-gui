@@ -4,9 +4,8 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Amadeco_OpcacheGui::opcache_gui" sortOrder="10" title="OPcache GUI">
-                    <resource id="Amadeco_OpcacheGui::index_index" sortOrder="10" title="OPcache Dashboard" />
-                    <resource id="Amadeco_OpcacheGui::index_gui" sortOrder="20" title="OPcache GUI Interface" />
+                <resource id="Magento_Backend::system">
+                    <resource id="Amadeco_OpcacheGui::gui_index" title="OPcache GUI" sortOrder="40"/>
                 </resource>
             </resource>
         </resources>

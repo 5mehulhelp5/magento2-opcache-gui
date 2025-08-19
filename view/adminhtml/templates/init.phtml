@@ -1,0 +1,11 @@
+<?php
+/** @var \Magento\Framework\Escaper $escaper */
+/** @var \Amadeco\OpcacheGui\Block\Adminhtml\Gui $block */
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "amadeco/opcache-gui": <?= /** @noEscape */ $block->getSerializedConfig() ?>
+    }
+}
+</script>

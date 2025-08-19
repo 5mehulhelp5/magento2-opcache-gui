@@ -8,15 +8,12 @@
         {
             "name": "Ilan Parmentier",
             "email": "dev@amadeco.fr"
-        },
-        {
-            "name": "Yehor Shytikov",
-            "email": "egorshitikov@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "require": {
-        "amnuts/opcache-gui": "^3.0"
+        "amnuts/opcache-gui": "^3.6"
     },
     "autoload": {
         "psr-4": {
