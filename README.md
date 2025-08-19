@@ -7,7 +7,7 @@
 
 > Advanced OPcache monitoring and control GUI for Magento 2, implemented with React for a responsive and modern experience.
 
-![Magento 2 Opcache GUI](https://github.com/user-attachments/assets/60f1a3aa-8c34-45ef-9b63-db3d9385b883](https://github.com/user-attachments/assets/2ceb23b9-a241-492f-a7b4-687e23528f36)
+![Magento 2 Opcache GUI](https://github.com/user-attachments/assets/2f932b2b-aafd-4335-bcc3-3f32d3448717)
 
 ## Features
 
