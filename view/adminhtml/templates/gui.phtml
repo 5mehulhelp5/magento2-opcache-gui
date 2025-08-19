@@ -1,0 +1,52 @@
+<?php
+/**
+ * OPcache GUI admin template
+ *
+ * Renders the "status card" and the React mount point.
+ *
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Amadeco\OpcacheGui\Block\Adminhtml\Gui $block
+ */
+declare(strict_types=1);
+
+$perf = $block->getPerformanceData();
+?>
+<div class="performance-card">
+    <div class="performance-card-header">
+        <h2><?= $escaper->escapeHtml(__('PHP OPcache Status Check')) ?></h2>
+    </div>
+
+    <div class="performance-card-body">
+        <?php if (!$perf['available']): ?>
+            <?php foreach ($perf['errors'] as $msg): ?>
+                <div class="performance-error message message-error error">
+                    <strong><?= $escaper->escapeHtml(__('Error')) ?>:</strong>
+                    <?= $escaper->escapeHtml($msg) ?>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <?php foreach ($perf['warnings'] as $msg): ?>
+                <div class="performance-warning message message-warning warning">
+                    <strong><?= $escaper->escapeHtml(__('Warning')) ?>:</strong>
+                    <?= $escaper->escapeHtml($msg) ?>
+                </div>
+            <?php endforeach; ?>
+
+            <?php foreach ($perf['errors'] as $msg): ?>
+                <div class="performance-error message message-error error">
+                    <strong><?= $escaper->escapeHtml(__('Error')) ?>:</strong>
+                    <?= $escaper->escapeHtml($msg) ?>
+                </div>
+            <?php endforeach; ?>
+
+            <?php foreach ($perf['metrics'] as $row): ?>
+                <div class="performance-result">
+                    <?= $escaper->escapeHtml($row['label']) ?>
+                    <?= $escaper->escapeHtml($row['value']) ?>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+</div>
+
+<div class="opcache-gui" id="interface"></div>

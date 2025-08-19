@@ -2,20 +2,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Amadeco_OpcacheGui::index_main"
-             title="React"
-             parent="Magento_Backend::system"
-             module="Amadeco_OpcacheGui"
-             sortOrder="120"
-             resource="Amadeco_OpcacheGui::opcache_gui"
-        />
-        <add id="Amadeco_OpcacheGui::index_index"
-             title="PHP OpCache Dashboard"
-             module="Amadeco_OpcacheGui"
-             action="opcache_gui/index/index"
-             resource="Amadeco_OpcacheGui::index_index"
-             parent="Amadeco_OpcacheGui::index_main"
-             sortOrder="10"
-        />
+        <add id="Amadeco_OpcacheGui::gui_index" title="PHP OpCache Dashboard" translate="title" module="Amadeco_OpcacheGui" sortOrder="40" parent="Magento_Backend::system_tools" action="opcache_gui/gui/index" resource="Amadeco_OpcacheGui::gui_index"/>
     </menu>
 </config>
