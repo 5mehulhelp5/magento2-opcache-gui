@@ -1,6 +1,6 @@
 # Magento 2 OPcache GUI PHP Performance Dashboard
 
-[![Latest Stable Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)](https://github.com/amadeco/module-opcache-gui)
+[![Latest Stable Version](https://img.shields.io/badge/version-2.0.1-brightgreen.svg)](https://github.com/amadeco/module-opcache-gui)
 [![Magento 2](https://img.shields.io/badge/Magento-2.4.x-orange.svg)](https://magento.com)
 [![PHP](https://img.shields.io/badge/PHP-8.1+-blue.svg)](https://www.php.net)
 [![License](https://img.shields.io/badge/license-MIT-yellowgreen.svg)](https://opensource.org/licenses/MIT)
